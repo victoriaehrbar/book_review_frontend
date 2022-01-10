@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <br><br>`;
     
-              document.querySelector('#syllabus-container').innerHTML += syllabusMarkup
+              document.querySelector('#book-container').innerHTML += bookMarkup
           })
         })
 }
