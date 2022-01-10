@@ -7,8 +7,37 @@
 </head>
     <body>
 
+        <div class="form-container">
+
+            <form id="create-book-form" style="">
+              <h3>Add a book!</h3>
+          
+              <input id='input-title' type="text" name="title" value="" placeholder="Enter book title" class="input-text">
+              <br><br>
+              <input id='input-author' name="author" rows="8" cols="80" value="" placeholder="Enter author" class="input-text">
+              <br><br>
+              <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter book description..."></textarea>
+              <br><br>
+          
+              <select id="categories" name="categories">
+                <option value="1">Action</option>
+                <option value="2">Biography</option>
+                <option value="3">Classics</option>
+                <option value="4">Fantasy</option>
+                <option value="5">History</option>
+                <option value="6">Horror</option>
+                <option value="7">Mystery</option>
+                <option value="8">SciFi</option>
+              </select>
+              <br><br>
+          
+              <input id= 'create-button' type="submit" name="submit" value="Create New Book" class="submit">
+            </form>
+          
+          </div>
+
         <div id="book-container">
-            
+
         </div>
     
     </body>
