@@ -3,6 +3,9 @@ const endPoint = "http://localhost:3000/api/v1/books"
 
 document.addEventListener('DOMContentLoaded', () => {
     getBooks()
+
+    const createBookForm = document.queySelector("#create-book-form")
+    
 })
     function getBooks() {
     fetch(endPoint);
