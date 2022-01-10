@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(endPoint);
     .then(response => response.json())
     .then(books => {
-        console.log(books);
-    })
+        books.data.forEach(book => {
+            // double check how your data is nested in the console so you can successfully access the attributes of each individual object
+            const syllabusMarkup = `
+              <div data-id=${book.id}>
+                <h3>${syllabus.attributes.title} </h3>
+                <h3>${syllabus.attributes.author}</h3>
+                <p>${book.attributes.category.name}</p>
+                <button data-id=${book.id}>edit</button>
+              </div>
+              <br><br>`;
+    
+              document.querySelector('#syllabus-container').innerHTML += syllabusMarkup
+          })
+        })
 }
