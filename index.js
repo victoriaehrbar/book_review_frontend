@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getBooks()
 
     const createBookForm = document.queySelector("#create-book-form")
-    
+
+    createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
     function getBooks() {
     fetch(endPoint);
