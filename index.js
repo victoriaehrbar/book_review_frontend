@@ -35,3 +35,23 @@ function createFormHandler(e) {
     const categoryId = parseInt(document.querySelector('#categories').value)
     postFetch(titleInput, authorInput, descriptionInput, categoryId)
   }
+
+  function postFetch(title, author, description, category_id) {
+    const bodyData = {title, author, description, category_id}
+  
+    fetch(endPoint, {
+      // POST request
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(book => {
+      console.log(book);
+      const bookData = book.data
+      // render JSON response
+      let newBook = new Book(bookData, bookData.attributes)
+      document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
+    })
+  
+  }
