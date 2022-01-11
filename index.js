@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(books => {
         books.data.forEach(book => {
-            // double check how your data is nested in the console so you can successfully access the attributes of each individual object
             const syllabusMarkup = `
               <div data-id=${book.id}>
                 <h3>${syllabus.attributes.title} </h3>
