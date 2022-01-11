@@ -27,3 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         })
 }
+
+function createFormHandler(e) {
+    e.preventDefault()
+    const titleInput = document.querySelector('#input-title').value
+    const authorInput = document.querySelector('#input-author').value
+    const descriptionInput = document.querySelector('#input-description').value
+    const categoryId = parseInt(document.querySelector('#categories').value)
+    postFetch(titleInput, descriptionInput, imageInput, categoryId)
+  }
