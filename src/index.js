@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         books.data.forEach(book => {
             let newBook = new Book(book, book.attributes)
     
-              document.querySelector('#book-container').innerHTML += bookMarkup
+              document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
           })
         })
 }

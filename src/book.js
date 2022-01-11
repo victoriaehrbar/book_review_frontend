@@ -3,9 +3,9 @@ class Book {
     constructor(book, bookAttributes) {
       this.id = book.id
       this.title = bookAttributes.title
-      this.author = syllabusAttributes.author
+      this.author = bookAttributes.author
       this.description = bookAttributes.description
-      this.category = syllabusAttributes.category
+      this.category = bookAttributes.category
       Book.all.push(this)
       console.log(this);
     }
