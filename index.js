@@ -9,18 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
     function getBooks() {
-    fetch(endPoint);
+    fetch(endPoint)
     .then(response => response.json())
     .then(books => {
         books.data.forEach(book => {
-            const bookMarkup = `
-              <div data-id=${book.id}>
-                <h3>${book.attributes.title} </h3>
-                <h3>${book.attributes.author}</h3>
-                <p>${book.attributes.category.name}</p>
-                <button data-id=${book.id}>edit</button>
-              </div>
-              <br><br>`;
+            let newBook = new Book(book, book.attributes)
     
               document.querySelector('#book-container').innerHTML += bookMarkup
           })
