@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(books => {
         books.data.forEach(book => {
-            const syllabusMarkup = `
+            const bookMarkup = `
               <div data-id=${book.id}>
-                <h3>${syllabus.attributes.title} </h3>
-                <h3>${syllabus.attributes.author}</h3>
+                <h3>${book.attributes.title} </h3>
+                <h3>${book.attributes.author}</h3>
                 <p>${book.attributes.category.name}</p>
                 <button data-id=${book.id}>edit</button>
               </div>
