@@ -4,7 +4,7 @@ const endPoint = "http://localhost:3000/api/v1/books"
 document.addEventListener('DOMContentLoaded', () => {
     getBooks()
 
-    const createBookForm = document.queySelector("#create-book-form")
+    const createBookForm = document.querySelector("#create-book-form")
 
     createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
