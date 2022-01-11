@@ -33,5 +33,5 @@ function createFormHandler(e) {
     const authorInput = document.querySelector('#input-author').value
     const descriptionInput = document.querySelector('#input-description').value
     const categoryId = parseInt(document.querySelector('#categories').value)
-    postFetch(titleInput, descriptionInput, imageInput, categoryId)
+    postFetch(titleInput, authorInput, descriptionInput, categoryId)
   }
