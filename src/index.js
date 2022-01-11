@@ -42,7 +42,7 @@ function createFormHandler(e) {
     .then(book => {
       console.log(book);
       const bookData = book.data
-      // render JSON response
+      // render the JSON response
       let newBook = new Book(bookData, bookData.attributes)
       document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
     })
