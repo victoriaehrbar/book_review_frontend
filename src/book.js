@@ -31,6 +31,30 @@ class Book {
     //     </div>
     //   `
     
+    attachDeleteButtonListener() {  
+        const deleteBookButton = document.getElementById(`button-${this.id}`)
+        
+            deleteBookButton.addEventListener('click', (e) => {
+                e.preventDefault()
+                this.deleteBook(e)
+                }
+            )
+        }
+    
+         deleteBook(e) {
+            const deletedBook = document.getElementById(`book-${this.id}`)
+            const book = {id: this.id}
+            return fetch( book_url + "/" + this.id, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                 },
+                 body: JSON.stringify(book)
+            })
+            .then(resp => resp.json())
+            .then(data => deletedBook.remove() )
+        }
+
     renderBookCard() {
         let element = document.getElementById(`book-${this.id}`)
         if(typeof(element) != 'undefined' && element != null){
@@ -39,10 +63,10 @@ class Book {
             return `
                 <div id="book-${this.id}" data-id=${this.id}>
                 <ul class="list-group">
-                    <li class="list-group-item active"><strong>${this.title}</strong></li>
+                <li class="list-group-item"><strong>Title:</strong> ${this.title}</li>
                     <li class="list-group-item"><strong>Author:</strong> ${this.author}</li>
                     <li class="list-group-item"><strong>Description:</strong> ${this.description}</li>
-                    <li class="list-group-item"><strong>Category:</strong> ${this.category}</li>
+                    <li class="list-group-item"><strong>Category:</strong> ${this.category.name}</li>
                 </ul>
                 </div>`
             }
