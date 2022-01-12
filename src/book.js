@@ -31,29 +31,29 @@ class Book {
     //     </div>
     //   `
     
-    attachDeleteButtonListener() {  
-        const deleteBookButton = document.getElementById(`button-${this.id}`)
+    // attachDeleteButtonListener() {  
+    //     const deleteBookButton = document.getElementById(`button-${this.id}`)
         
-            deleteBookButton.addEventListener('click', (e) => {
-                e.preventDefault()
-                this.deleteBook(e)
-                }
-            )
-        }
+    //         deleteBookButton.addEventListener('click', (e) => {
+    //             e.preventDefault()
+    //             this.deleteBook(e)
+    //             }
+    //         )
+    //     }
     
-         deleteBook(e) {
-            const deletedBook = document.getElementById(`book-${this.id}`)
-            const book = {id: this.id}
-            return fetch( book_url + "/" + this.id, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                 },
-                 body: JSON.stringify(book)
-            })
-            .then(resp => resp.json())
-            .then(data => deletedBook.remove() )
-        }
+    //      deleteBook(e) {
+    //         const deletedBook = document.getElementById(`book-${this.id}`)
+    //         const book = {id: this.id}
+    //         return fetch( book_url + "/" + this.id, {
+    //             method: 'DELETE',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //              },
+    //              body: JSON.stringify(book)
+    //         })
+    //         .then(resp => resp.json())
+    //         .then(data => deletedBook.remove() )
+    //     }
 
     renderBookCard() {
         let element = document.getElementById(`book-${this.id}`)
