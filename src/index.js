@@ -4,7 +4,7 @@ const endPoint = "http://localhost:3000/api/v1/books"
 document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is loaded");
     getBooks()
-
+    attachDeleteButtonListener()
     const createBookForm = document.querySelector("#create-book-form")
     createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
@@ -46,20 +46,25 @@ function createFormHandler(e) {
       let newBook = new Book(bookData, bookData.attributes)
       document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
     })
-  
-    function editFetch(title, author, description, category_id){
-      const bodyData = {title, author, description, category_id}
-      //EDIT request
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(bodyData)
-    })
-    .then(response => response.json())
-    .then(book => {
-      console.log(book);
-      const bookData = book.data
-      // render the JSON response
-      let editedBook = edit Book(bookData, bookData.attributes)
-      document.querySelector('#book-container').innerHTML += editedBook.renderBookCard()
-    })
   }
+
+    function deleteBook(e) {
+      const { id } = e.target.dataset;
+      fetch(`http://localhost:3000/api/v1/books/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          e.target.parentElement.parentElement.parentElement.remove();
+        });
+    }
+
+    function attachDeleteButtonListener() {
+      const deleteBookButton = document.getElementById(`button-${this.id}`)
+      
+          deleteBookButton.addEventListener('click', (e) => {
+              e.preventDefault()
+              deleteBook(e)
+              
+            })
+}
