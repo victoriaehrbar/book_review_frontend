@@ -8,15 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const createBookForm = document.querySelector("#create-book-form")
     createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
-    function getBooks() {
+
+function getBooks() {
     fetch(endPoint)
     .then(response => response.json())
     .then(books => {
         books.data.forEach(book => {
             let newBook = new Book(book, book.attributes)
-    
+
               document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
           })
+
+          attachDeleteButtonListener()
         })
 }
 
@@ -31,7 +34,7 @@ function createFormHandler(e) {
 
   function postFetch(title, author, description, category_id) {
     const bodyData = {title, author, description, category_id}
-  
+
     fetch(endPoint, {
       // POST request
       method: "POST",
@@ -45,6 +48,7 @@ function createFormHandler(e) {
       // render the JSON response
       let newBook = new Book(bookData, bookData.attributes)
       document.querySelector('#book-container').innerHTML += newBook.renderBookCard()
+      attachDeleteButtonListener()
     })
   }
 
@@ -55,16 +59,20 @@ function createFormHandler(e) {
       })
         .then((res) => res.json())
         .then((data) => {
-          e.target.parentElement.parentElement.parentElement.remove();
+          debugger
+          e.target.parentElement.parentElement.remove();
         });
     }
 
     function attachDeleteButtonListener() {
-      const deleteBookButton = document.getElementById(`button-${this.id}`)
-      
+      // const deleteBookButton = document.getElementById(`button-${this.id}`)
+
+      document.querySelectorAll('.delete-book-button').forEach((deleteBookButton) => {
           deleteBookButton.addEventListener('click', (e) => {
+            // debugger
               e.preventDefault()
               deleteBook(e)
-              
+
             })
+        })
 }

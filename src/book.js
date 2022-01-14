@@ -68,13 +68,13 @@ class Book {
                     <li class="list-group-item"><strong>Description:</strong> ${this.description}</li>
                     <li class="list-group-item"><strong>Category:</strong> ${this.category.name}</li>
                     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    <button data-id=${this.id} type="button" class="delete-book-button btn btn-sm btn-outline-secondary">Delete</button>
                 </ul>
                 </div>`
             }
 
     }
-  
+
   }
   
   Book.all = [];
