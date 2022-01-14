@@ -10,50 +10,6 @@ class Book {
       console.log(this);
     }
   
-    // renderBookCard() {
-    //   return `
-    //     <div class="col-md-4">
-    //       <div class="card mb-4 shadow-sm">
-            
-    //         <div class="card-body">
-    //           <h5 class="card-title">${this.title}</h5>
-    //           <h5 class="card-author">${this.author}</h5>
-    //           <p class="card-text">${this.description}</p>
-    //           <small class="text-muted">Category: ${this.category.name}</small>
-    //           <div class="d-flex justify-content-between align-items-center">
-    //             <div class="btn-group">
-    //               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-    //               <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   `
-    
-    // attachDeleteButtonListener() {  
-    //     const deleteBookButton = document.getElementById(`button-${this.id}`)
-        
-    //         deleteBookButton.addEventListener('click', (e) => {
-    //             e.preventDefault()
-    //             this.deleteBook(e)
-    //             }
-    //         )
-    //     }
-    
-    //      deleteBook(e) {
-    //         const deletedBook = document.getElementById(`book-${this.id}`)
-    //         const book = {id: this.id}
-    //         return fetch( book_url + "/" + this.id, {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //              },
-    //              body: JSON.stringify(book)
-    //         })
-    //         .then(resp => resp.json())
-    //         .then(data => deletedBook.remove() )
-    //     }
 
     renderBookCard() {
         let element = document.getElementById(`book-${this.id}`)
