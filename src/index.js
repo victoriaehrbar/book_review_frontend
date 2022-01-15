@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("DOM is loaded");
     getBooks()
     attachDeleteButtonListener()
+    attachCommentButtonListener()
     const createBookForm = document.querySelector("#create-book-form")
     createBookForm.addEventListener("submit", (e) => createFormHandler(e))
 })
@@ -52,6 +53,11 @@ function createFormHandler(e) {
     })
   }
 
+  function commentData(e) {
+    e.preventDefault()
+    const commentInput = document.querySelector('#user-comments-input').value
+  }
+
     function deleteBook(e) {
       const { id } = e.target.dataset;
       fetch(`http://localhost:3000/api/v1/books/${id}`, {
@@ -59,7 +65,7 @@ function createFormHandler(e) {
       })
         .then((res) => res.json())
         .then((data) => {
-          debugger
+          //debugger
           e.target.parentElement.parentElement.remove();
         });
     }
@@ -75,4 +81,19 @@ function createFormHandler(e) {
 
             })
         })
+}
+
+function submitComment() {
+  const commentInput = document.querySelector('#user-comments-input').value
+  document.querySelector("#user-comments-div").innerHTML = commentInput
+  document.querySelector("#user-comments-form").reset();
+  }
+
+function attachCommentButtonListener() {
+  const submitButton = document.querySelector('#user-comments-submit')
+  submitButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    submitComment()
+    
+  })
 }
